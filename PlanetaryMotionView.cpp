@@ -86,13 +86,13 @@ CPlanetaryMotionView::CPlanetaryMotionView() noexcept
 	ringSpaceSaturn.orbitRadius = 275;
 	ringSpaceSaturn.angle = 5.6;
 	ringSpaceSaturn.radius = 30;
-	ringSpaceSaturn.color = RGB(255, 255, 255);
+	ringSpaceSaturn.color = RGB(0, 0, 0);
 
 	Planet ringSaturn;
 	ringSaturn.orbitRadius = 275;
 	ringSaturn.angle = 5.6;
 	ringSaturn.radius = 35;
-	ringSaturn.color = RGB(204, 85, 0);
+	ringSaturn.color = RGB(245, 245, 220);
 
 	m_planets.Add(mercury);
 	m_planets.Add(venus);
@@ -132,7 +132,7 @@ void CPlanetaryMotionView::OnDraw(CDC* pDC)
 	COffScreenDC memDC(pDC); // Custom class shown below
 	CRect clientRect;
 	GetClientRect(&clientRect);
-	memDC.FillSolidRect(clientRect, RGB(255, 255, 255));
+	memDC.FillSolidRect(clientRect, RGB(0, 0, 0));
 
 	int cx = m_sunCentre.x;
 	int cy = m_sunCentre.y;
@@ -142,7 +142,7 @@ void CPlanetaryMotionView::OnDraw(CDC* pDC)
 	CBrush hollowBrush;
 	hollowBrush.CreateStockObject(HOLLOW_BRUSH);
 
-	CPen orbitPen(PS_SOLID, 1, RGB(128, 128, 128));
+	CPen orbitPen(PS_SOLID, 2, RGB(255, 255, 255));
 	CPen* pOldPen = memDC.SelectObject(&orbitPen);
 
 	CBrush* pOldOrbitBrush = memDC.SelectObject(&hollowBrush);
