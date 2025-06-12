@@ -55,6 +55,7 @@ END_MESSAGE_MAP()
 CPlanetaryMotionView::CPlanetaryMotionView() noexcept
 {
 	// TODO: add construction code here
+	m_iCounter = 0;
 	m_pCurrentThread = NULL;
 	m_sunCentre = CPoint(750, 350);
 	Planet mercury;
@@ -75,9 +76,31 @@ CPlanetaryMotionView::CPlanetaryMotionView() noexcept
 	earth.radius = 15;
 	earth.color = RGB(0, 0, 255);
 
+	Planet saturn;
+	saturn.orbitRadius = 275;
+	saturn.angle = 5.6;
+	saturn.radius = 25;
+	saturn.color = RGB(245, 245, 220);
+
+	Planet ringSpaceSaturn;                       //to add space between the ring and the planet saturn
+	ringSpaceSaturn.orbitRadius = 275;
+	ringSpaceSaturn.angle = 5.6;
+	ringSpaceSaturn.radius = 30;
+	ringSpaceSaturn.color = RGB(255, 255, 255);
+
+	Planet ringSaturn;
+	ringSaturn.orbitRadius = 275;
+	ringSaturn.angle = 5.6;
+	ringSaturn.radius = 35;
+	ringSaturn.color = RGB(204, 85, 0);
+
 	m_planets.Add(mercury);
 	m_planets.Add(venus);
 	m_planets.Add(earth);
+	m_planets.Add(ringSaturn);      //in this specific order so the ring is visible
+	m_planets.Add(ringSpaceSaturn);
+	m_planets.Add(saturn);
+
 
 }
 
